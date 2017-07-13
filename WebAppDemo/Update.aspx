@@ -1,8 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Update.aspx.cs" Inherits="WebAppDemo.Update" ViewStateEncryptionMode="Always" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>&nbsp;<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head runat="server"><title>Update Package</title>
-    <meta charset="utf-8"/>    
-    <style type="text/css">
-        .auto-style1 {
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %><html xmlns="http://www.w3.org/1999/xhtml"><head runat="server"><title>Update Package</title>&nbsp;<meta charset="utf-8"/><style type="text/css">
+                                                                                                                                                                                                                           .auto-style1 {
         }
 
         .auto-style2 {
@@ -22,31 +20,35 @@
             width: 198px;
             height: 24px;
         }
-    </style>
-</head>
-<body>
-
-    <form id="form1" runat="server" style="font-size: x-large; font-weight: bold; background-color: #FFFFFF; color: #000000; text-align: center">
+                                 .auto-style9 {
+                                     width: 145px;
+                                     height: 23px;
+                                 }
+                                 .auto-style10 {
+                                     width: 198px;
+                                     height: 23px;
+                                 }
+                                                                                                                                                                                                                           .auto-style11 {
+                                                                                                                                                                                                                               width: 151px;
+                                                                                                                                                                                                                           }
+    </style></head><body><form id="form1" runat="server" style="font-size: x-large; font-weight: bold; background-color: #FFFFFF; color: #000000; text-align: center">
 
         <asp:ScriptManager ID="scriptManager" runat="server"></asp:ScriptManager>
           
 
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>   
-                <asp:Button ID="btnUpdate" runat="server" BackColor="#A3C1E0" CssClass="auto-style1" Font-Bold="True" Font-Size="Large" ForeColor="White" Height="33px" OnClick="btnUpdate_Click" Text="Save" ToolTip="Save this settings without coming back to packages" Width="122px" />
-                <asp:Button ID="btnCancel" runat="server" BackColor="#A3C1E0" CssClass="auto-style1" Font-Bold="True" Font-Size="Large" ForeColor="White" Height="33px" OnClick="btnCancel_Click" Text="Cancel" ToolTip="Coming back to all packages without saving" Width="94px" />
-                <asp:Button ID="Button1" runat="server" BackColor="#A3C1E0" Font-Bold="True" Font-Size="Large" ForeColor="White" Height="33px" OnClick="Button1_Click" Text="Save and come back" ToolTip="Save this settings and come back to packages" Width="204px"  />                
-                <div style="border-style: none; font-style: normal; font-size: x-large; font-weight: bold; color: #000000">
-                    Update package attributes<br />
-                    <table cellpadding="0" style="width: 617px;">
+                <div style="border: 2px inset #000066; font-style: normal; font-size: x-large; font-weight: bold; color: #000000">
+                    Update this package attributes<br />
+                    <table cellpadding="0" style="width: 482px; position: relative; clip: rect(auto, auto, auto, auto); top: 2px; left: 208px;">
                         <tr>
-                            <td class="auto-style4" dir="rtl" draggable="true" style="border-style: inherit; border-color: #FFFFFF; font-size: medium; font-weight: bold; background-color: #A3C1E0; color: #FFFFFF;" translate="yes">PackageName</td>
+                            <td class="auto-style4" dir="rtl" draggable="true" style="border-style: inherit; border-color: #FFFFFF; font-size: medium; font-weight: bold; background-color: #CCCCFF; color: #FFFFFF; position: absolute;" translate="yes" rowspan="1">PackageName</td>
                             <td class="auto-style4">
                                 <asp:TextBox ID="pacName" runat="server" ReadOnly="true" Width="202px" />
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style5" style="font-size: medium; font-weight: bold; background-color: #A3C1E0; color: #FFFFFF;">CreatingDate</td>
+                            <td class="auto-style5" style="font-size: medium; font-weight: bold; background-color: #CCCCFF; color: #FFFFFF;">CreatingDate</td>
                             <td class="auto-style6">
                                 <asp:TextBox ID="createDate" runat="server" AutoPostBack="true" Width="201px" />
                                 <ajax:CalendarExtender ID="CalendarExtender2" runat="server" Format="yyyy-MM-dd HH:mm:ss" PopupButtonID="Image2" TargetControlID="createDate" />
@@ -55,7 +57,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style2" style="font-size: medium; font-weight: bold; background-color: #A3C1E0; color: #FFFFFF;">ClosingDate</td>
+                            <td class="auto-style2" style="font-size: medium; font-weight: bold; background-color: #CCCCFF; color: #FFFFFF;">ClosingDate</td>
                             <td class="auto-style4">
                                 <asp:TextBox ID="closeDate" runat="server" AutoPostBack="true" CausesValidation="true" Width="199px"></asp:TextBox>
                                 <ajax:CalendarExtender ID="CalendarExtender1" runat="server" Format="yyyy-MM-dd HH:mm:ss" PopupButtonID="Image1" TargetControlID="closeDate" />
@@ -66,13 +68,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style2" style="font-size: medium; font-weight: bold; background-color: #A3C1E0; color: #FFFFFF;">Opened</td>
-                            <td class="auto-style4">
+                            <td class="auto-style9" style="font-size: medium; font-weight: bold; background-color: #CCCCFF; color: #FFFFFF;">Opened</td>
+                            <td class="auto-style10">
                                 <asp:CheckBox ID="openedCheckBox" runat="server" />
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style2" style="font-size: medium; font-weight: bold; background-color: #A3C1E0; color: #FFFFFF;">City</td>
+                            <td class="auto-style2" style="font-size: medium; font-weight: bold; background-color: #CCCCFF; color: #FFFFFF;">City</td>
                             <td class="auto-style4">
                                 <asp:TextBox ID="city" runat="server" Width="199px" AutoPostBack="true" CausesValidation="true"/>
                                 <br />
@@ -88,67 +90,86 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
+                <asp:Button ID="Button1" runat="server" BackColor="#CCCCFF" Font-Bold="True" Font-Size="Medium" ForeColor="Black" Height="33px" OnClick="Button1_Click" Text="Save and come back" ToolTip="Save this settings and come back to packages" Width="204px" Font-Names="Arial" Font-Overline="False"  />                
+                <asp:Button ID="btnUpdate" runat="server" BackColor="#CCCCFF" CssClass="auto-style1" Font-Bold="True" Font-Size="Medium" ForeColor="Black" Height="33px" OnClick="btnUpdate_Click" Text="Save" ToolTip="Save this settings without coming back to packages" Width="122px" Font-Names="Arial" />
+                <asp:Button ID="btnCancel" runat="server" BackColor="#CCCCFF" CssClass="auto-style5" Font-Bold="True" Font-Size="Medium" ForeColor="Black" Height="33px" OnClick="btnCancel_Click" Text="Cancel" ToolTip="Coming back to all packages without saving" Width="94px" Font-Names="Arial" />
+                <br />
         <br />
-        <asp:TextBox runat="server" ReadOnly="true" Text="Shipments"></asp:TextBox>        
+        <br />
+        Shipments in this package
+        <br />        
        
         <asp:UpdatePanel ID="upPanel" runat="server">
             <ContentTemplate>
 
                 <div>
                     <div>
-                        <table class="auto-style1">
-                            <body>
-                                <tr>
-                                    <td style="background-color: #A3C1E0; font-size: large; font-weight: bolder; color: #FFFFFF;">Shipment</td>
-                                    <td style="background-color: #A3C1E0; font-size: large; font-weight: bolder; color: #FFFFFF;">Address</td>
-                                    <td style="background-color: #A3C1E0; font-size: large; font-weight: bolder; color: #FFFFFF;">CreatingDate</td>
-                                    <td style="background-color: #A3C1E0; font-size: large; font-weight: bolder; color: #FFFFFF;">Loads</td>
-                                </tr>
-                            </body>
-
-
-                            <asp:Repeater ID="rptShipments" runat="server">
-                                <ItemTemplate>
-
-                                    <tr>
-                                        <td>
-                                            <asp:TextBox ID="TextBox1" runat="server"
-                                                Width="150px" MaxLength="50" ReadOnly="true" Text='<%#Eval("Shipment") %>'>
-                                            </asp:TextBox>
+                        <asp:TextBox ID="printNone" Text="NONE" runat="server" Style="text-align: center" BackColor="White" BorderColor="White" BorderStyle="None" Font-Bold="True" ForeColor="Red" Height="26px" Width="132px"></asp:TextBox>
+                                <asp:Repeater ID="rptShipments" runat="server">
+                                    <HeaderTemplate>
+                                        <table class="auto-style1">
                                             
-                                        </td>
-                                        <td>
-                                            <asp:TextBox ID="TextBox2" runat="server"
-                                                Width="150px" MaxLength="50" ReadOnly="true" Text='<%#Eval("Address") %>'>
-                                            </asp:TextBox>
-
-                                        </td>
-                                        <td>
-                                            <asp:TextBox ID="TextBox3" runat="server"
-                                                Width="150px" MaxLength="50" ReadOnly="true" Text='<%#Eval("CreatingDate") %>'>
-                                            </asp:TextBox>
-                                            
-                                        </td>
-                                        <td>
-                                            <asp:TextBox ID="TextBox4" runat="server"
-                                                Width="150px" MaxLength="50" ReadOnly="true" Text='<%#Eval("Loads") %>'>
-                                            </asp:TextBox>
-                                            
-                                        </td>
-                                        <td>
-                                            <asp:LinkButton Text="Delete" ID="DeleteButtonDB" CommandArgument='<%# Eval("ShipName") %>' OnCommand="DeleteButtonDB" OnClientClick="return confirm('Are you sure you want to delete?');" ToolTip="Delete this shipment from this package" runat="server" BackColor="#A3C1E0" CssClass="auto-style1" Font-Bold="True" Font-Size="Large" ForeColor="White" Height="33px" Width="122px" /></td>
-                                        </td>
-                                    </tr>
-
-                                </ItemTemplate>
-
-                            </asp:Repeater>
+                                                <tr>
+                                                    <td style="background-color: #A3C1E0; font-size: large; font-weight: bolder; color: #FFFFFF;">Shipment</td>
+                                                    <td style="background-color: #A3C1E0; font-size: large; font-weight: bolder; color: #FFFFFF;">Address</td>
+                                                    <td style="background-color: #A3C1E0; font-size: large; font-weight: bolder; color: #FFFFFF;">CreatingDate</td>
+                                                    <td style="background-color: #A3C1E0; font-size: large; font-weight: bolder; color: #FFFFFF;" class="auto-style11">Loads</td>
+                                                    
+                                                </tr>
+                            
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <tr>
+                                            <td>
+                                                <asp:TextBox ID="TextBox1" runat="server" MaxLength="50" ReadOnly="true" Text='<%#Eval("Shipment") %>' Width="150px">
+                                                </asp:TextBox>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox2" runat="server" MaxLength="50" ReadOnly="true" Text='<%#Eval("Address") %>' Width="150px">
+                                                </asp:TextBox>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox3" runat="server" MaxLength="50" ReadOnly="true" Text='<%#Eval("CreatingDate") %>' Width="150px">
+                                                </asp:TextBox>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox4" runat="server" MaxLength="50" ReadOnly="true" Text='<%#Eval("Loads") %>' Width="150px">
+                                                </asp:TextBox>
+                                            </td>
+                                            <td>
+                                                <asp:LinkButton ID="DeleteButtonDB" runat="server" BackColor="#A3C1E0" CommandArgument='<%# Eval("ShipName") %>' CssClass="auto-style1" Font-Bold="True" Font-Size="Large" ForeColor="White" Height="33px" OnClientClick="return confirm('Are you sure you want to delete?');" OnCommand="DeleteButtonDB" Text="Delete" ToolTip="Delete this shipment from this package" Width="122px" />
+                                            </td>
+                                            </td>
+                                        </tr>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </caption>
                         </table>
                         <br />
                         <br />
+                        Add new shipment<br />
 
-                        <asp:TextBox runat="server" ReadOnly="true" Text="Shipments added"></asp:TextBox>
-                    <br />
+                         <tr>
+
+                             <td>
+                                 <asp:Button ID="btnAdd" runat="server"
+                                     Text="Add" ToolTip="Add this shipment to section shipments added" OnClick="btnAdd_Click" BackColor="#A3C1E0" CssClass="auto-style1" Font-Bold="True" ForeColor="White" Height="37px" Width="179px" />
+
+                             </td>
+                             <td>
+                                 <asp:DropDownList runat="server" ID="cb1"></asp:DropDownList>
+
+                             </td>
+                             <br />
+                             <br />
+
+                             <td>
+                                 <asp:Button ID="btnSaveShip" runat="server"
+                                     Text="SaveAddedShipments" OnClick="btnSaveShip_Click" ToolTip="Save shipments which were added to package" BackColor="#A3C1E0" CssClass="auto-style1" Font-Bold="True" ForeColor="White" Height="50px" Width="234px" />
+                             </td>
+
+                         </tr>
+
                         <asp:ListView ID="ListView1" runat="server" ItemPlaceholderID="itemPlaceHolder1"
                             GroupPlaceholderID="groupPlaceHolder1">
                             <LayoutTemplate>
@@ -189,30 +210,8 @@
                             </ItemTemplate>
                         </asp:ListView>
 
-                        <br />
-                        <br />
-
-                        <tr>
-                            <td>
-                                <asp:Button ID="btnAdd" runat="server"
-                                    Text="Add new shipment to this package"  ToolTip="Add this shipment to section shipments added" OnClick="btnAdd_Click" BackColor="#A3C1E0" CssClass="auto-style1" Font-Bold="True" ForeColor="White" Height="37px" Width="234px" />
-
-                            </td>
-                            <td>
-                                <asp:DropDownList runat="server" ID="cb1"></asp:DropDownList>
-                                
-                            </td>
-
-                            <br />
-                            <br />
-
-                            <td>
-                                <asp:Button ID="btnSaveShip" runat="server"
-                                    Text="SaveAddedShipments" OnClick="btnSaveShip_Click"  ToolTip="Save shipments which were added to package" BackColor="#A3C1E0" CssClass="auto-style1" Font-Bold="True" ForeColor="White" Height="50px" Width="234px" />
-                            </td>
-
-                        </tr>
-                        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                       
+                        
                     </div>
                 </div>
             </ContentTemplate>
@@ -229,3 +228,4 @@
 
 </body>
 </html>
+

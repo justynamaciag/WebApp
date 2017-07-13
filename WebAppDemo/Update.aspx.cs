@@ -29,6 +29,9 @@ namespace WebAppDemo
             {
                 FillComboShipments();
                 BindTextBoxvalues();
+                RepeaterHandler();
+                btnSaveShip.Visible = false;
+                //printNone.Visible = false;
                 
             }
         }
@@ -217,12 +220,25 @@ namespace WebAppDemo
         private void RepeaterHandler()
         {            
             SqlConnection con = new SqlConnection(constr);
-            SqlCommand cmd2 = new SqlCommand("select * from Shipments inner join Packages on Packages.Shipment=Shipments.ShipName where PackageName = '" + packageName + " ' ", con);
+            SqlCommand cmd2 = new SqlCommand("select * from Shipments inner join Packages on Packages.Shipment=Shipments.ShipName where PackageName = '" + packageName + " ' order by ShipName ", con);
             DataTable dt2 = new DataTable();
             SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
 
             da2.Fill(dt2);
             rptShipments.DataSource = dt2;
+
+            if (dt2.Rows.Count == 0)
+            {
+                rptShipments.Visible = false;
+                printNone.Visible = true;
+            }
+            else
+            {
+                printNone.Visible = false;
+                rptShipments.Visible = true;
+            }
+                
+
             rptShipments.DataBind();
             
         }
@@ -241,6 +257,7 @@ namespace WebAppDemo
 
             ListView1.DataSource = dt;
             ListView1.DataBind();
+            btnSaveShip.Visible = true;
             FillComboShipments();
         }
 
@@ -335,11 +352,13 @@ namespace WebAppDemo
                 cmd.Parameters.AddWithValue("@PackageName", p.PackageName);
                 cmd.Parameters.AddWithValue("@Shipment", p.Shipment);
                 cmd.CommandType = CommandType.StoredProcedure;
-                int numberSql = Convert.ToInt32(cmd.ExecuteScalar());
-
+               
            }
             shipments.Clear();
             packages.Clear();
+
+            btnSaveShip.Visible = false;
+
             updateShipments();                  
             
             con.Close();
@@ -405,6 +424,9 @@ namespace WebAppDemo
             s.Remove(searchedShip);
             updateShipments();
             shipments = s;
+
+            if (shipments.Count == 0)
+                btnSaveShip.Visible = false;
         }
 
         private void ShowMessage(string msg)
@@ -467,6 +489,10 @@ namespace WebAppDemo
             }
         }
 
+        protected void printNone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     

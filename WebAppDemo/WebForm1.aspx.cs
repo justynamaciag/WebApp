@@ -70,12 +70,12 @@ namespace WebAppDemo
             }
         }
 
-        protected void tb_TextChanged(object sender, GridViewRowEventArgs e)
+        /*protected void tb_TextChanged(object sender, GridViewRowEventArgs e)
         {
             t.Text = "changed";
             ViewState["Searched"] = tb.Text;        
             this.BindGridView();
-        }
+        }*/
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {

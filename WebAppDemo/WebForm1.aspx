@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Default</title>
+    <title>Packages</title>
     <meta charset="utf-8"/>
 
     <script type="text/javascript">
@@ -34,8 +34,8 @@
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 
-                <asp:GridView ID="GridView1" OnPageIndexChanging="PageIndexChanging" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" ForeColor="#333333" GridLines="None" AllowPaging="True" Height="200px" Width="786px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1"  ShowFooter="True" OnRowDataBound="GridView1_OnRowDataBound" CellPadding="0" HorizontalAlign="Center">
-                    <AlternatingRowStyle BackColor="White" />
+                <asp:GridView ID="GridView1" OnPageIndexChanging="PageIndexChanging" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" ForeColor="#333333" AllowPaging="True" Height="200px" Width="786px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" OnRowDataBound="GridView1_OnRowDataBound" CellPadding="0" HorizontalAlign="Center" BackColor="Black" BorderColor="Black" Font-Names="AngsanaUPC" Font-Size="X-Large" Font-Strikeout="False">
+                    <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
                     <Columns>
                         <asp:TemplateField ItemStyle-Width="20px">
                             <ItemTemplate>
@@ -80,19 +80,32 @@
                                                     <asp:BoundField DataField="CreatingDate" HeaderText="CreatingDate" />
                                                     <asp:BoundField DataField="Loads" HeaderText="Loads" />
                                                 </Columns>
-                                                <HeaderStyle BackColor="#4D92C1" ForeColor="White" />
+                                                
+                                                <EditRowStyle BackColor="#99CCFF" Wrap="True" HorizontalAlign="Center" />
+                                                <EmptyDataRowStyle HorizontalAlign="Center" />
+                                                <FooterStyle BackColor="#99CCFF" Font-Bold="True" ForeColor="White" />
+                                                <HeaderStyle BackColor="#CCCCFF" Font-Bold="True" ForeColor="White" BorderColor="Black" HorizontalAlign="Center" VerticalAlign="Top" Wrap="False" />
+                                                <PagerSettings FirstPageText="First" LastPageText="Last" Mode="NumericFirstLast" />
+                                                <PagerStyle BackColor="#CCCCFF" ForeColor="White" HorizontalAlign="Center" />
+                                                <RowStyle BackColor="White" HorizontalAlign="Center" />
+                                                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                                                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                                                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                                                <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                             </asp:GridView>
                                     </td>
                                 </tr>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
-                    <EditRowStyle BackColor="#2461BF" />
-                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <EditRowStyle BackColor="#99CCFF" Wrap="True" HorizontalAlign="Center" />
+                    <EmptyDataRowStyle HorizontalAlign="Center" />
+                    <FooterStyle BackColor="#99CCFF" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#CCCCFF" Font-Bold="True" ForeColor="White" BorderColor="Black" HorizontalAlign="Center" VerticalAlign="Top" Wrap="False" />
                     <PagerSettings FirstPageText="First" LastPageText="Last" Mode="NumericFirstLast" />
-                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#EFF3FB" />
+                    <PagerStyle BackColor="#CCCCFF" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="White" HorizontalAlign="Center" />
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                     <SortedAscendingCellStyle BackColor="#F5F7FB" />
                     <SortedAscendingHeaderStyle BackColor="#6D95E1" />
@@ -103,9 +116,6 @@
             </ContentTemplate>
         </asp:UpdatePanel>     
         
-        <asp:TextBox runat="server" ID="tb" TextChanged="tb_TextChanged" AutoPostBack="true"></asp:TextBox>
-        <asp:TextBox runat="server" ID="t"  AutoPostBack="true"></asp:TextBox>   
-
     </div>
         <br />
 
