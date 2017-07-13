@@ -16,8 +16,8 @@
                     if (div.style.display == "none") {
                         div.style.display = "block";
                         img.src = "Images/minus.png";
-                    } else {
-
+                    }
+                    else {
                         div.style.display = "none";
                         img.src = "Images/plus.png";
                     }

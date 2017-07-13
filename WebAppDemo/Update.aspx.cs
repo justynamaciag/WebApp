@@ -31,9 +31,42 @@ namespace WebAppDemo
                 BindTextBoxvalues();
                 RepeaterHandler();
                 btnSaveShip.Visible = false;
+                unblockControls();
                 //printNone.Visible = false;
                 
             }
+         }
+
+        protected void openedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (openedCheckBox.Checked == false)
+                blockControls();
+            else
+                unblockControls();
+        }
+
+        private void blockControls()
+        {
+            createDate.ReadOnly = true;
+            closeDate.ReadOnly = true;
+            city.ReadOnly = true;
+            cb1.Enabled = false;
+            //LinkButton localLink = (LinkButton)rptShipments.FindControl("DeleteButtonDB");
+            //localLink.Enabled = false;
+            btnAdd.Enabled = false;
+            openedValidatorTxtBox.Visible = true;
+        }
+
+        private void unblockControls()
+        {
+            createDate.ReadOnly = false; 
+            closeDate.ReadOnly = false;
+            city.ReadOnly = false;
+            cb1.Enabled = true;
+            /*LinkButton localLink = (LinkButton)rptShipments.FindControl("DeleteButtonDB");
+            localLink.Enabled = true;*/
+            btnAdd.Enabled = true;
+            openedValidatorTxtBox.Visible = false;
         }
 
         protected void Application_Error(Object sender, EventArgs e)
@@ -50,7 +83,8 @@ namespace WebAppDemo
             pacName.Text = dt.Rows[0][0].ToString();
             createDate.Text = dt.Rows[0][1].ToString();
             closeDate.Text = dt.Rows[0][2].ToString();
-            openedCheckBox.Checked = Convert.ToBoolean(dt.Rows[0][3].ToString());
+            openedCheckBox.Checked = true;
+            //openedCheckBox.Checked = Convert.ToBoolean(dt.Rows[0][3].ToString());
             city.Text = dt.Rows[0][5].ToString();
 
         }
@@ -352,6 +386,7 @@ namespace WebAppDemo
                 cmd.Parameters.AddWithValue("@PackageName", p.PackageName);
                 cmd.Parameters.AddWithValue("@Shipment", p.Shipment);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
                
            }
             shipments.Clear();
@@ -489,9 +524,15 @@ namespace WebAppDemo
             }
         }
 
-        protected void printNone_TextChanged(object sender, EventArgs e)
+        protected void openedValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-
+            if (openedCheckBox.Checked == false)
+            {
+               // openedValidatorT.ErrorMessage = "This package is closed if you want to make any changes, first open it!";
+                blockControls();
+            }
+            else
+                unblockControls();
         }
     }
 

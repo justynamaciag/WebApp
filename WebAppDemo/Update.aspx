@@ -1,48 +1,48 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Update.aspx.cs" Inherits="WebAppDemo.Update" ViewStateEncryptionMode="Always" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %><html xmlns="http://www.w3.org/1999/xhtml"><head runat="server"><title>Update Package</title>&nbsp;<meta charset="utf-8"/><style type="text/css">
-                                                                                                                                                                                                                           .auto-style1 {
-        }
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %><html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Update Package</title>
+            <p style="background-color: #CCCCFF">
 
-        .auto-style2 {
-            width: 205px;
-        }
+            </p>
+          
 
-        .auto-style4 {
-            width: 198px;
-        }
+        &nbsp;<meta charset="utf-8" /><style type="text/css">
+                                                                   .auto-style1 {
+                                                                   }
 
-        .auto-style5 {
-            width: 205px;
-            height: 24px;
-        }
+                                                                   .auto-style2 {
+                                                                       width: 205px;
+                                                                   }
 
-        .auto-style6 {
-            width: 198px;
-            height: 24px;
-        }
-                                 .auto-style9 {
-                                     width: 145px;
-                                     height: 23px;
-                                 }
-                                 .auto-style10 {
-                                     width: 198px;
-                                     height: 23px;
-                                 }
-                                                                                                                                                                                                                           .auto-style11 {
-                                                                                                                                                                                                                               width: 151px;
-                                                                                                                                                                                                                           }
-    </style></head><body><form id="form1" runat="server" style="font-size: x-large; font-weight: bold; background-color: #FFFFFF; color: #000000; text-align: center">
+                                                                   .auto-style4 {
+                                                                       width: 198px;
+                                                                   }
+
+                                                                   .auto-style5 {
+                                                                       width: 205px;
+                                                                       height: 24px;
+                                                                   }
+
+                                                                   .auto-style6 {
+                                                                       width: 198px;
+                                                                       height: 24px;
+                                                                   }
+
+                                                                   width: 151px;
+                                                                   }
+        </style></head><body><form id="form1" runat="server" style="font-size: x-large; font-weight: bold; background-color: #FFFFFF; color: #000000; text-align: center">
 
         <asp:ScriptManager ID="scriptManager" runat="server"></asp:ScriptManager>
           
 
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>   
-                <div style="border: 2px inset #000066; font-style: normal; font-size: x-large; font-weight: bold; color: #000000">
+                <div style="font-style: normal; font-size: x-large; font-weight: bold; color: #000000">
                     Update this package attributes<br />
                     <table cellpadding="0" style="width: 482px; position: relative; clip: rect(auto, auto, auto, auto); top: 2px; left: 208px;">
                         <tr>
-                            <td class="auto-style4" dir="rtl" draggable="true" style="border-style: inherit; border-color: #FFFFFF; font-size: medium; font-weight: bold; background-color: #CCCCFF; color: #FFFFFF; position: absolute;" translate="yes" rowspan="1">PackageName</td>
+                            <td class="auto-style5" style="font-size: medium; font-weight: bold; background-color: #CCCCFF; color: #FFFFFF;">PackageName</td>
                             <td class="auto-style4">
                                 <asp:TextBox ID="pacName" runat="server" ReadOnly="true" Width="202px" />
                             </td>
@@ -70,7 +70,8 @@
                         <tr>
                             <td class="auto-style9" style="font-size: medium; font-weight: bold; background-color: #CCCCFF; color: #FFFFFF;">Opened</td>
                             <td class="auto-style10">
-                                <asp:CheckBox ID="openedCheckBox" runat="server" />
+                                <asp:CheckBox ID="openedCheckBox" runat="server" AutoPostBack="true" OnCheckedChanged="openedCheckBox_CheckedChanged"  />
+                                <asp:Textbox ID="openedValidatorTxtBox" runat="server" Text="Changes invalid. Package is closed" Width="232px"></asp:Textbox>
                             </td>
                         </tr>
                         <tr>
@@ -78,8 +79,8 @@
                             <td class="auto-style4">
                                 <asp:TextBox ID="city" runat="server" Width="199px" AutoPostBack="true" CausesValidation="true"/>
                                 <br />
-                                <asp:RequiredFieldValidator ID="requiredCityValidator" runat="server" ControlToValidate="city" Display="Dynamic" ErrorMessage='Field city cant be empty' ForeColor="Red" OnServerValidate="customValidator_ServerValidate">
-                                </asp:RequiredFieldValidator>
+                                <asp:CustomValidator ID="requiredCityValidator" runat="server" ControlToValidate="city" Display="Dynamic" ErrorMessage="" ForeColor="Red" OnServerValidate="customValidator_ServerValidate">
+                                </asp:CustomValidator>
                             </td>
                         </tr>
                         <tr>
@@ -96,7 +97,6 @@
                 <br />
         <br />
         <br />
-        Shipments in this package
         <br />        
        
         <asp:UpdatePanel ID="upPanel" runat="server">
@@ -104,7 +104,8 @@
 
                 <div>
                     <div>
-                        <asp:TextBox ID="printNone" Text="NONE" runat="server" Style="text-align: center" BackColor="White" BorderColor="White" BorderStyle="None" Font-Bold="True" ForeColor="Red" Height="26px" Width="132px"></asp:TextBox>
+                        Shipments in this package<br />&nbsp;
+                        <asp:TextBox ID="printNone" Text="NONE" runat="server" Style="text-align: center" BackColor="White" BorderColor="White" BorderStyle="None" Font-Bold="True" ForeColor="Red" Height="26px" Width="132px" ></asp:TextBox>
                                 <asp:Repeater ID="rptShipments" runat="server">
                                     <HeaderTemplate>
                                         <table class="auto-style1">
