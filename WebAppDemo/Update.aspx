@@ -1,6 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Update.aspx.cs" Inherits="WebAppDemo.Update" ViewStateEncryptionMode="Always" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %><html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site1.Master" CodeBehind="Update.aspx.cs" Inherits="WebAppDemo.Update" ViewStateEncryptionMode="Always" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
+
+<asp:Content ContentPlaceHolderID="head" runat="server">
+
     <title>Update Package</title>
             <p style="background-color: #CCCCFF">
 
@@ -31,11 +33,13 @@
 
                                                                    width: 151px;
                                                                    }
-        </style></head><body><form id="form1" runat="server" style="font-size: x-large; font-weight: bold; background-color: #FFFFFF; color: #000000; text-align: center">
+        </style>
+</asp:Content>
 
-        <asp:ScriptManager ID="scriptManager" runat="server"></asp:ScriptManager>
-          
-
+<asp:Content ContentPlaceHolderID="ContentPlaceholder1" runat="server">
+    
+    <body>
+       
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>   
                 <div style="font-style: normal; font-size: x-large; font-weight: bold; color: #000000">
@@ -224,9 +228,9 @@
             }
         </script>
 
-    </form>
 
 
 </body>
-</html>
+    </asp:Content>
+
 

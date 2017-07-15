@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebAppDemo.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" MasterPageFile="~/Site1.Master"  Inherits="WebAppDemo.WebForm1" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+
+
+<asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
+
     <title>Packages</title>
     <meta charset="utf-8"/>
 
@@ -23,14 +24,31 @@
                     }
         }
     </script>
-</head>
-<body>
-    <form id="form1" runat="server">
+    <script type="text/javascript">
+                function Confirm(packageName) {
+                    var confirm_value = document.createElement("INPUT");
+                    confirm_value.type = "hidden";
+                    confirm_value.name = "confirm_value";                    
+                    if (confirm("This package is closed! Are you sure to open it?")) {
+                        url = "Update.aspx?PacNo=" + packageName;
+                        window.location.href = url;
+                    } 
+                }
 
+        </script>
+
+    
+
+</asp:Content>
+
+<asp:Content Id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="font-size: x-large; font-weight: bold">      
 
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
-        </asp:ScriptManager>
+        <br />
+        <br />
+        <br />
+        
+        
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 
@@ -117,21 +135,13 @@
         </asp:UpdatePanel>     
         
     </div>
-        <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
-        <script type="text/javascript">
-                function Confirm(packageName) {
-                    var confirm_value = document.createElement("INPUT");
-                    confirm_value.type = "hidden";
-                    confirm_value.name = "confirm_value";                    
-                    if (confirm("This package is closed! Are you sure to open it?")) {
-                        url = "Update.aspx?PacNo=" + packageName;
-                        window.location.href = url;
-                    } 
-                }
+    
 
-        </script>        
+  </asp:Content>
 
-    </form>
-</body>
-</html>
+    

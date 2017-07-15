@@ -12,7 +12,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace WebAppDemo
-
 {
    
     public partial class Update : System.Web.UI.Page
@@ -177,8 +176,7 @@ namespace WebAppDemo
 
             
 
-            /*try
-            {      */          
+          
                 con.Open();
 
                 SqlCommand cmd2;
@@ -205,50 +203,7 @@ namespace WebAppDemo
                 cmd2.ExecuteNonQuery();
 
               }
-
-
-            /*if (closeDate.Text.Equals(("NULL")) || closeDate.Text.Equals(("null")) || closeDate.Text.Equals(("Null")) || closeDate.Text == string.Empty)
-            {          
             
-                foreach (DataRow ship in shipments.Rows)
-                {
-                    TextBox5.Text = ship[0].ToString();
-                    if(ship[0].ToString()=="NULL")
-                        cmd2 = new SqlCommand("update Packages set CreatingDate='" + createDate.Text + "',City='" + city.Text + "', ClosingDate=NULL, Opened='" + openedCheckBox.Checked + "'where PackageName='" + pacName.Text + "'", con);
-
-
-                    cmd2 = new SqlCommand("update Packages set CreatingDate='" + createDate.Text + "',City='" + city.Text + "', ClosingDate=NULL, Opened='" + openedCheckBox.Checked + "'where PackageName='" + pacName.Text + "' and Shipment='"+ship[0].ToString()+"'", con);
-                    if (Page.IsValid == true) cmd2.ExecuteNonQuery();
-                }
-            }
-            else
-            { 
-                foreach (DataRow ship in shipments.Rows)
-                {
-                    if (ship[0].ToString() == "NULL")
-                        cmd2 = new SqlCommand("update Packages set CreatingDate='" + createDate.Text + "',City='" + city.Text + "',ClosingDate='" + closeDate.Text + "',Opened='" + openedCheckBox.Checked + "'where PackageName='" + pacName.Text + "'", con);
-
-                    cmd2 = new SqlCommand("update Packages set CreatingDate='" + createDate.Text + "',City='" + city.Text + "',ClosingDate='" + closeDate.Text + "',Opened='" + openedCheckBox.Checked + "'where PackageName='" + pacName.Text +"' and Shipment='" + ship[0].ToString() + "'", con);
-                    if (Page.IsValid == true) cmd2.ExecuteNonQuery();
-                }
-            }*/
-                    
-            
-                
-
-            /*}
-            catch(Exception ex)
-            {
-                Session["CurrentError"] = ex.Message;            
-                
-
-            }
-            finally
-            {
-                con.Close();
-            }   
-            */
-
         }
 
         private void RepeaterHandler()

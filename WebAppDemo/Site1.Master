@@ -1,0 +1,69 @@
+﻿<%@ AutoEventWireup="true" CodeBehind="Site1.Master.cs"  Inherits="WebAppDemo.Site1" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">    
+    <title>Packages Web Application</title>
+    <link href ="css/mycss.css" rel="stylesheet" />   
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <header id="header">
+        <div class="HeadLayout">
+            <div class="text">Packages Web Application</div>
+            <div class="PackagePicture">&nbsp;</div>
+        </div>
+    </header>
+     <form id="form1" runat="server">
+         <asp:ScriptManager ID="MasterScriptManager" runat="server"></asp:ScriptManager>
+    <nav id="nav">
+        <ul>
+            <li><a href="WebForm1.aspx">Home</a></li>
+            <li><a href="#">About</a></li>
+         </ul>
+    </nav>
+    <aside id="side">
+        <br />
+            
+        <div>
+            <input id="clock" type="text" />
+            <script type="text/javascript">
+                setInterval("setTime()", 1000);
+
+                function setTime() {
+                    var dateTime = new Date();
+                    var hour = dateTime.getHours();
+                    var minute = dateTime.getMinutes();
+                    var second = dateTime.getSeconds();
+
+                    if (minute < 10)
+                        minute = "0" + minute;
+
+                    if (second < 10)
+                        second = "0" + second;
+
+                    var time = "" + hour + ":" + minute + ":" + second;
+
+                    document.getElementById("clock").value = time;
+                }
+            </script>
+        </div>
+        
+        <br />
+        <asp:Calendar ID="Calendar1" runat="server" Width="117px">
+            <DayStyle BackColor="White" BorderColor="#000066" />
+            <TodayDayStyle BackColor="#CCCCFF" BorderColor="Black" BorderStyle="Inset" BorderWidth="2px" />
+        </asp:Calendar>
+    </aside>
+    <div id="con">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+         <footer id="footer">
+             copyright @Packages Web App
+         </footer>
+    </form>
+</body>
+</html>

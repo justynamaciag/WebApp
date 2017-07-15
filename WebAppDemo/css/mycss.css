@@ -1,0 +1,78 @@
+﻿#header{ 
+}
+div.HeadLayout{
+    display:table;
+    padding:5px; 
+    margin:5px 5px;
+}
+div.text{
+    padding:5px 7px 5px 5px;
+    display:table-cell;
+    text-align:left;
+    font-weight:600;
+    font-size:xx-large;
+    color:rgba(17, 28, 112, 0.76);
+    font-family:'Monotype Corsiva';
+}
+div.PackagePicture {
+   content:url('../images/packagepicture.jpg');
+   display:table;
+}
+#nav{
+    background-color:rgba(17, 28, 112, 0.76);
+    padding:5px;
+}
+ul{
+    list-style:none;
+}
+li a{
+    color:azure;
+    font-size:30px;
+    column-width:5%;
+}
+li{
+    display:inline;
+    padding-left: 2px;
+    column-width: 20px;
+}
+a{
+    text-decoration:none;
+    margin-left: 20px;
+}
+li a:hover{
+    background-color: rgba(17, 28, 112, 0.76);
+    color: aliceblue;
+    padding:1%;
+}
+#side{
+    text-align:center;
+    float:right;
+    width:22%;
+    background-color:rgba(17, 28, 112, 0.76);
+    color:azure;
+    margin-bottom:50px;
+}
+input[id='clock']{
+    text-align:center;
+    border:none;
+    font:xx-large;
+    font-size:30px;
+    font-family:'Monotype Corsiva';
+    color:azure;
+    text-decoration:underline;
+    background-color:unset;
+    height:45px;
+}
+#footer{
+    bottom:0px;
+    width:100%;
+    background-color:rgba(17, 28, 112, 0.76);
+    text-align:center;
+    font-size: 20px;
+    height:50px;
+}
+#con{
+    border:double;
+    border-bottom-color:aliceblue;
+    background-color:rgba(184, 216, 208, 0.27);
+}
