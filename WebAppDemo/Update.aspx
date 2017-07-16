@@ -9,31 +9,36 @@
             </p>
           
 
-        &nbsp;<meta charset="utf-8" /><style type="text/css">
-                                                                   .auto-style1 {
-                                                                   }
+        &nbsp;
+        <meta charset="utf-8" />    
+    <style type="text/css">
+        .buttonAppearance{
+            background-color:#525e94;
+            color:white;
+            text-align:center;
+            font-weight:bold;
+            height:30px;
+            width:auto;
+        }
+        .auto-style2 {
+            width: 205px;
+        }
 
-                                                                   .auto-style2 {
-                                                                       width: 205px;
-                                                                   }
+        .auto-style4 {
+            width: 198px;
+        }
 
-                                                                   .auto-style4 {
-                                                                       width: 198px;
-                                                                   }
+        .auto-style5 {
+            width: 205px;
+            height: 24px;
+        }
 
-                                                                   .auto-style5 {
-                                                                       width: 205px;
-                                                                       height: 24px;
-                                                                   }
+        .auto-style6 {
+            width: 198px;
+            height: 24px;
+        }
 
-                                                                   .auto-style6 {
-                                                                       width: 198px;
-                                                                       height: 24px;
-                                                                   }
-
-                                                                   width: 151px;
-                                                                   }
-        </style>
+    </style>
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceholder1" runat="server">
@@ -75,7 +80,7 @@
                             <td class="auto-style9" style="font-size: medium; font-weight: bold; background-color: #CCCCFF; color: #FFFFFF;">Opened</td>
                             <td class="auto-style10">
                                 <asp:CheckBox ID="openedCheckBox" runat="server" AutoPostBack="true" OnCheckedChanged="openedCheckBox_CheckedChanged"  />
-                                <asp:Textbox ID="openedValidatorTxtBox" runat="server" Text="Changes invalid. Package is closed" Width="232px"></asp:Textbox>
+                                <asp:TextBox ID="openedValidatorTxtBox" runat="server" Style="color:red; border:none" Text="Changes invalid. Package is closed" Width="232px"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -95,9 +100,9 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
-                <asp:Button ID="Button1" runat="server" BackColor="#CCCCFF" Font-Bold="True" Font-Size="Medium" ForeColor="Black" Height="33px" OnClick="Button1_Click" Text="Save and come back" ToolTip="Save this settings and come back to packages" Width="204px" Font-Names="Arial" Font-Overline="False"  />                
-                <asp:Button ID="btnUpdate" runat="server" BackColor="#CCCCFF" CssClass="auto-style1" Font-Bold="True" Font-Size="Medium" ForeColor="Black" Height="33px" OnClick="btnUpdate_Click" Text="Save" ToolTip="Save this settings without coming back to packages" Width="122px" Font-Names="Arial" />
-                <asp:Button ID="btnCancel" runat="server" BackColor="#CCCCFF" CssClass="auto-style5" Font-Bold="True" Font-Size="Medium" ForeColor="Black" Height="33px" OnClick="btnCancel_Click" Text="Cancel" ToolTip="Coming back to all packages without saving" Width="94px" Font-Names="Arial" />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Save and come back" ToolTip="Save this settings and come back to packages" CssClass="buttonAppearance" />                
+                <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Save" ToolTip="Save this settings without coming back to packages" CssClass="buttonAppearance" />
+                <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" ToolTip="Coming back to all packages without saving" CssClass="buttonAppearance" />
                 <br />
         <br />
         <br />
@@ -158,7 +163,7 @@
 
                              <td>
                                  <asp:Button ID="btnAdd" runat="server"
-                                     Text="Add" ToolTip="Add this shipment to section shipments added" OnClick="btnAdd_Click" BackColor="#A3C1E0" CssClass="auto-style1" Font-Bold="True" ForeColor="White" Height="37px" Width="179px" />
+                                     Text="Add" ToolTip="Add this shipment to section shipments added" OnClick="btnAdd_Click" CssClass="buttonAppearance" />
 
                              </td>
                              <td>
@@ -167,10 +172,17 @@
                              </td>
                              <br />
                              <br />
+                             <td>
+                                 <asp:Button Id="btnAddNewShip" Text="Create new shipment" runat="server" CssClass="buttonAppearance">
+                                 </asp:Button>
+
+                             </td>
+                             <br />
+                             <br />
 
                              <td>
                                  <asp:Button ID="btnSaveShip" runat="server"
-                                     Text="SaveAddedShipments" OnClick="btnSaveShip_Click" ToolTip="Save shipments which were added to package" BackColor="#A3C1E0" CssClass="auto-style1" Font-Bold="True" ForeColor="White" Height="50px" Width="234px" />
+                                     Text="SaveAddedShipments" OnClick="btnSaveShip_Click" ToolTip="Save shipments which were added to package" CssClass="buttonAppearance" />
                              </td>
 
                          </tr>

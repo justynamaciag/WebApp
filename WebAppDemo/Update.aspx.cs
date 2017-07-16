@@ -18,11 +18,13 @@ namespace WebAppDemo
     {
         
         string packageName;
-        string constr = ConfigurationManager.ConnectionStrings["ConnectionString2"].ConnectionString;
+        static string constr = ConfigurationManager.ConnectionStrings["ConnectionString2"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             packageName = Request.QueryString["PacNo"].ToString();
+            btnAddNewShip.Attributes.Add("onclick", "window.open('AddShipment.aspx','','height=300, width=350');");
 
             if (!IsPostBack)
             {
@@ -31,11 +33,10 @@ namespace WebAppDemo
                 RepeaterHandler();
                 btnSaveShip.Visible = false;
                 unblockControls();
-                //printNone.Visible = false;
                 
             }
          }
-
+        
         protected void openedCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (openedCheckBox.Checked == false)
@@ -365,7 +366,6 @@ namespace WebAppDemo
             int numberSql = Convert.ToInt32(cmd.ExecuteScalar());
             con.Close();
 
-            //int number = Convert.ToInt32(numberSql);
             if (numberSql > 1) return false;
             return true;
             
@@ -419,10 +419,6 @@ namespace WebAppDemo
                 btnSaveShip.Visible = false;
         }
 
-        private void ShowMessage(string msg)
-        {
-            Page.ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language = 'javascript' > alert('" + msg + "');</ script > ");
-        }
 
         protected List<Package> packages
         {
@@ -489,7 +485,8 @@ namespace WebAppDemo
             else
                 unblockControls();
         }
-    }
+
+      }
 
     
 }

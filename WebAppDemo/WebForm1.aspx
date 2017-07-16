@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" MasterPageFile="~/Site1.Master"  Inherits="WebAppDemo.WebForm1" %>
-
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 
 
 <asp:Content ID="head" ContentPlaceHolderID="head" runat="server">
@@ -36,23 +35,67 @@
                 }
 
         </script>
+    <style type="text/css">
+        .creatingButtons{
+        }
+        .buttonAppearance{
+            border:none;
+            background:none;
+            text-align:center;
+            text-decoration:underline;
+            font-family:'Monotype Corsiva';
+            font-weight:bold;
+            color:#191a50;
+            font-size:20px;
+        }
+    </style>
+        <style type="text/css">
+            .completionList {
+                background-color:white;
+            }
+            .listItem {
+                display:table-row;
 
-    
+            }
+        </style>
 
 </asp:Content>
 
 <asp:Content Id="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="font-size: x-large; font-weight: bold">      
+   
+    <div style="font-size:x-large; font-weight: bold">      
 
         <br />
-        <br />
-        <br />
+
+        <div>
+            <asp:Button ID="btnAddPackage" Text="Create Empty Package" runat="server" CssClass="buttonAppearance" />
+            <br />
+            <asp:Button ID="btnAddShipment" Text="CreateShipment" runat="server" CssClass="buttonAppearance" />
+         </div>
+
+        <div style="padding-left: 25%">
+                    <asp:TextBox ID="searchPackageBox" runat="server" Style="text-align: center; color: gray" AutoPostBack="true" OnTextChanged="btnSearch_Click"></asp:TextBox>
+                    <ajax:AutoCompleteExtender
+                        ServiceMethod="GetCompletionList"
+                        ServicePath="~/WebForm1.aspx"
+                        MinimumPrefixLength="1"
+                        EnableCaching="false"
+                        TargetControlID="searchPackageBox"
+                        ID="AutoCompleteExtenderPackagesName"
+                        runat="server"
+                        CompletionSetCount="10"
+                        FirstRowSelected="true"
+                        CompletionListCssClass="completionList"
+                        CompletionListItemCssClass="listItem">
+                    </ajax:AutoCompleteExtender>
+                    <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" CssClass="buttonAppearance" />
+        </div>        
         
+        <br />
         
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                
-                <asp:GridView ID="GridView1" OnPageIndexChanging="PageIndexChanging" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" ForeColor="#333333" AllowPaging="True" Height="200px" Width="786px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" OnRowDataBound="GridView1_OnRowDataBound" CellPadding="0" HorizontalAlign="Center" BackColor="Black" BorderColor="Black" Font-Names="AngsanaUPC" Font-Size="X-Large" Font-Strikeout="False">
+                <asp:GridView ID="GridView1" OnPageIndexChanging="PageIndexChanging" HeaderStyle-BackColor="#3AC0F2" HeaderStyle-ForeColor="White" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" ForeColor="#333333" AllowPaging="True" Height="200px" Width="786px"  OnRowDataBound="GridView1_OnRowDataBound" CellPadding="0" HorizontalAlign="Center" BackColor="Black" BorderColor="Black" Font-Names="AngsanaUPC" Font-Size="X-Large" Font-Strikeout="False">
                     <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
                     <Columns>
                         <asp:TemplateField ItemStyle-Width="20px">

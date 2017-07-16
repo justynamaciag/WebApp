@@ -7,16 +7,20 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+ 
 namespace WebAppDemo
 {
 
     public partial class WebForm1 : System.Web.UI.Page
     {
-        string constr; 
+        static string constr; 
         protected void Page_Load(object sender, EventArgs e)
         {
-            constr = ConfigurationManager.ConnectionStrings["ConnectionString2"].ConnectionString; 
+            constr = ConfigurationManager.ConnectionStrings["ConnectionString2"].ConnectionString;
+            AutoCompleteExtenderPackagesName.DelimiterCharacters = System.Environment.NewLine;
+            btnAddPackage.Attributes.Add("onclick", "window.open('AddPackage.aspx','','height=300, width=350');");
+            btnAddShipment.Attributes.Add("onclick", "window.open('AddShipment.aspx','','height=300, width=350');");
+            
             if (!this.IsPostBack)
             {
                 ViewState["Filter"] = "All";
@@ -70,12 +74,39 @@ namespace WebAppDemo
             }
         }
 
-        /*protected void tb_TextChanged(object sender, GridViewRowEventArgs e)
+        
+        [System.Web.Script.Services.ScriptMethod()]
+        [System.Web.Services.WebMethod]
+        public static List<string> GetCompletionList(string prefixText, int count)
         {
-            t.Text = "changed";
-            ViewState["Searched"] = tb.Text;        
-            this.BindGridView();
-        }*/
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                 using (SqlCommand com = new SqlCommand())
+                {
+                    com.CommandText = "select distinct PackageName from Packages where " + "PackageName like @Search + '%'";
+
+                    com.Parameters.AddWithValue("@Search", prefixText);
+                    com.Connection = con;
+                    con.Open();
+                    List<string> packageNames = new List<string>();
+                    using (SqlDataReader sdr = com.ExecuteReader())
+                    {
+                        while (sdr.Read())
+                        {
+                            String pc = sdr["PackageName"].ToString();
+                            packageNames.Add(pc);
+                        }
+                    }
+                    con.Close();
+                    return packageNames;
+
+
+                }
+
+            }
+
+        }
+
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -106,19 +137,12 @@ namespace WebAppDemo
            
         }
 
-      
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
-
+            ViewState["Searched"] = searchPackageBox.Text;
+            BindGridView();
         }
-
-        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            
-        }
-
-        
     }
     
 }

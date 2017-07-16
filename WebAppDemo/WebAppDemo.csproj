@@ -98,11 +98,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddPackage.aspx" />
+    <Content Include="AddShipment.aspx" />
     <Content Include="App_Data\Database2.mdf" />
     <Content Include="App_Data\Database2_log.ldf">
       <DependentUpon>Database2.mdf</DependentUpon>
     </Content>
     <Content Include="css\mycss.css" />
+    <Content Include="css\FormCss.css" />
     <Content Include="images\calendar.png" />
     <Content Include="images\minus.png" />
     <Content Include="images\PackagePicture.jpg" />
@@ -125,6 +128,20 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPackage.aspx.cs">
+      <DependentUpon>AddPackage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPackage.aspx.designer.cs">
+      <DependentUpon>AddPackage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddShipment.aspx.cs">
+      <DependentUpon>AddShipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddShipment.aspx.designer.cs">
+      <DependentUpon>AddShipment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Package.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shipment.cs" />

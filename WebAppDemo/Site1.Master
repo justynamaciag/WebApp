@@ -16,8 +16,8 @@
         </div>
     </header>
      <form id="form1" runat="server">
-         <asp:ScriptManager ID="MasterScriptManager" runat="server"></asp:ScriptManager>
-    <nav id="nav">
+         <asp:ScriptManager ID="MasterScriptManager" runat="server" EnablePageMethods="true"></asp:ScriptManager>
+     <nav id="nav">
         <ul>
             <li><a href="WebForm1.aspx">Home</a></li>
             <li><a href="#">About</a></li>
